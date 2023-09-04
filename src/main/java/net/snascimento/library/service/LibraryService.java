@@ -49,7 +49,7 @@ public class LibraryService {
 
   public Book createBook(BookCreationRequest book) {
     Optional<Author> author = authorRepository.findById(book.getAuthorId());
-    if (!author.isPresent()) {
+    if (author.isEmpty()) {
       throw new EntityNotFoundException("Author not found");
     }
     Book bookToCreate = new Book();
@@ -71,7 +71,7 @@ public class LibraryService {
 
   public Member updateMember(String id, MemberCreationRequest request) {
     Optional<Member> optionalMember = memberRepository.findById(id);
-    if (!optionalMember.isPresent()) {
+    if (optionalMember.isEmpty()) {
       throw new EntityNotFoundException("Member not present in the database");
     }
     Member member = optionalMember.get();
@@ -88,7 +88,7 @@ public class LibraryService {
 
   public List<String> lendABook(BookLendRequest request) {
     Optional<Member> memberForId = memberRepository.findById(request.getMemberId());
-    if (!memberForId.isPresent()) {
+    if (memberForId.isEmpty()) {
       throw new EntityNotFoundException("Member not present in the database");
     }
 
@@ -104,12 +104,12 @@ public class LibraryService {
         .forEach(
             bookId -> {
               Optional<Book> bookForId = bookRepository.findById(bookId);
-              if (!bookForId.isPresent()) {
+              if (bookForId.isEmpty()) {
                 throw new EntityNotFoundException("Can't find any book under given ID");
               }
               Optional<Lend> borrowedBook =
                   lendRepository.findByBookAndStatus(bookForId.get(), LendStatus.BORROWED);
-              if (!borrowedBook.isPresent()) {
+              if (borrowedBook.isEmpty()) {
                 booksApprovedToBorrow.add(bookForId.get().getName());
                 Lend lend = new Lend();
                 lend.setMember(memberForId.get());
