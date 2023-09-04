@@ -4,6 +4,6 @@ spring:
     data:
         mongodb:
             database: ${DB_DATABASE}
-            uri: ${DB_LOCAL}
+            uri: ${DB_URI}
     profiles:
         active: default
