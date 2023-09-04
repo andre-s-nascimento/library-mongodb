@@ -35,6 +35,10 @@ public class LibraryService {
     throw new EntityNotFoundException("Can't find any book under given ID");
   }
 
+  public List<Book> readBooks() {
+    return bookRepository.findAll();
+  }
+
   public Book readBook(String isbn) {
     Optional<Book> book = bookRepository.findByIsbn(isbn);
     if (book.isPresent()) {
