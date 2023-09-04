@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>net.snascimento</groupId>
-	<artifactId>library</artifactId>
+	<artifactId>library-mongodb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>library</name>
 	<description>Library Project with mongodb and Spring Boot</description>
