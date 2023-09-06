@@ -22,6 +22,7 @@ API para gerenciar uma biblioteca simples (CRUD), que usa relacionamento entre c
 ## Como Executar
 
 - Clonar repositório git
+- Ajustar informações de banco de dados nos arquivos `application-dev.yml` e criar seu `env.properties` a partir do exemplo em `env-example.properties`)
 - Construir o projeto:
 
 ```bash

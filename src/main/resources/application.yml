@@ -1,9 +1,3 @@
 spring:
-    config:
-        import: optional:env.properties
-    data:
-        mongodb:
-            database: ${DB_DATABASE}
-            uri: ${DB_URI}
     profiles:
-        active: default
+        active: dev
