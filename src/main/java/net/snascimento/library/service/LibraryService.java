@@ -122,4 +122,12 @@ public class LibraryService {
             });
     return booksApprovedToBorrow;
   }
+
+  public List<Member> findAllMembers() {
+   return memberRepository.findAll();
+  }
+
+  public List<Author> findAllAuthors() {
+    return authorRepository.findAll();
+  }
 }
